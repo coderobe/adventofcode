@@ -2,9 +2,7 @@
 
 output = File
   .readlines("input-2.txt")
-  .map(&:split)
-  .map{|e| e.map(&:to_i)}
-  .map(&:sort)
+  .map{|e| e.split.map(&:to_i).sort}
   .map{|e| e.last - e.first}
   .reduce(&:+)
 
