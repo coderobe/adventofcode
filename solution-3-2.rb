@@ -6,12 +6,10 @@ puts File.readlines("input-3.txt")
 	.flatten(2)
 	.sort_by{|a| [a[1], a[2]]}
 	.chunk{|c| [c[1], c[2]]}
-	.reject{|c| c.last.size > 1}
 	.map(&:last)
+	.reject{|c| c.size > 1}
 	.flatten(1)
-	.map{|e| [e[0], e[3]]}
-	.sort_by(&:first)
-	.chunk(&:first)
-	.map{|e| [e[0], e.last.last.last, e[1].size]}
-	.select{|e| e[1] == e[2]}
+	.group_by(&:first)
+	.map{|e| [e[0], e[1][0][3] == e[1].size]}
+	.select(&:last)
 	.map(&:first)
