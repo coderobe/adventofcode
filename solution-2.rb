@@ -5,8 +5,7 @@ input = File.read("input-2.txt").split(',').map(&:to_i)
 def int(state, noun, verb)
   state[1] = noun
   state[2] = verb
-  pc = 0
-  instr = 0
+  pc, instr = 0
   while instr != 99 do
     instr = state[pc]
     res = nil
@@ -33,14 +32,10 @@ end
 p "part 1", int(input.clone, 12, 2)
 
 target = 19690720
-current = nil
 pool = (0..99).to_a
-noun = 0
-verb = 0
+noun, verb = 0
 loop do
-  current = int(input.clone, noun, verb)
-  break if current == target
-  noun = pool.sample
-  verb = pool.sample
+  break if int(input.clone, noun, verb) == target
+  noun, verb = pool.sample, pool.sample
 end
 p "part 2", 100 * noun + verb
