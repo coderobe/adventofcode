@@ -1,8 +1,6 @@
 # adventofcode
 
-This is an (incomplete) collection of my solutions for AoC 2017
-
-My main attempt with these was to explore and (ab)use the functional aspects of the Ruby programming language to its fullest extent, producing as little individual statements as possible.
+This is an (incomplete) collection of my solutions for AoC
 
 # Licensing
 
